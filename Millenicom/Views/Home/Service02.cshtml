@@ -1,13 +1,9 @@
-﻿@{
-    ViewBag.Title = "Service02";
-}
-
-@using (Html.BeginForm())
+﻿@using (Html.BeginForm())
 {
-    <h3>Service 2</h3>
+    <h3></h3>
     <label>Parameters</label>
-    <input type="text" name="param1" class="form-control" placeholder="Text" />
-    <input type="text" name="param2" class="form-control" placeholder="Pattern" />
+    <input type="text" name="param1" class="form-control" placeholder="Text" /><br/>
+    <input type="text" name="param2" class="form-control" placeholder="Pattern" /><br/>
     <button type="submit" class="btn btn-primary">FindPattern</button>
 }
 <h3>@ViewBag.findPatternMessage</h3>

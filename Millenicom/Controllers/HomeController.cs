@@ -15,6 +15,7 @@ namespace Millenicom.Controllers
         {
             return new Random().Next(1000,10000);
         }
+
         public string findPattern(string param1, string param2)
         {
             string newStr = "", blockChar = "";
@@ -36,9 +37,14 @@ namespace Millenicom.Controllers
             }
             return "";
         }
+
         public string functionCounter(string funcName)
         {
-            if (funcName != null)
+            if (funcName.Equals(""))
+            {
+                return "RandomNumberGenerator: " + countRandom + " -- " + "findPattern: " + countPattern;
+            }
+            else if (funcName != null)
             {
                 if (funcName.Equals("RandomNumberGenerator"))
                 {
@@ -46,33 +52,38 @@ namespace Millenicom.Controllers
                 }
                 else if (funcName.Equals("findPattern"))
                 {
-                    return "findPattern function called" + countPattern + " times";
+                    return "findPattern function called " + countPattern + " times";
                 }
                 else if (!funcName.Equals("RandomNumberGenerator") || !funcName.Equals("findPattern"))
                 {
                     return "The function you were looking for does not exist !!";
                 }
             }
-    
-            return "RandomNumberGenerator: " + countRandom + " -- " + "findPattern: " + countPattern;
+            return "";
         }
 
+        // GET: Home/
         public ActionResult Index()
         {
             return View();
         }
+
+        // GET: Home/Service01
         public ActionResult Service01()
         {
             countRandom++;
             string result = RandomNumberGenerator().ToString();
             ViewBag.RandomNumberMessage = result;
             return View();
-        }    
+        }
+
+        // GET: Home/Service02
         public ActionResult Service02()
         {     
             return View();
         }
 
+        // POST: 
         [HttpPost]
         public ActionResult Service02(string param1, string param2)
         {
@@ -82,12 +93,13 @@ namespace Millenicom.Controllers
             return View();
         }
 
-        // GET: 
+        // GET: Home/Service03
         public ActionResult Service03()
         {
             return View();
         }
 
+        // POST: 
         [HttpPost]
         public ActionResult Service03(string funcName)
         {
